@@ -11,7 +11,7 @@ class SeguidorController extends Controller
      */
     public function index()
     {
-        //
+        return view('seguidores');
     }
 
     /**
