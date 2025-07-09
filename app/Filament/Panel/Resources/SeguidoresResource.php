@@ -59,7 +59,7 @@ class SeguidoresResource extends Resource
                     ->nullable()
                     ->image()
                     ->maxSize(1024) // 1MB
-                    ->directory('seguidores_fotos')
+                    ->directory('seguidores')
                     ->preserveFilenames()
                     ->visibility('public')
                     ->label('Foto del Seguidor'),
