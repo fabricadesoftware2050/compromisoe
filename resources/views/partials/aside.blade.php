@@ -76,19 +76,19 @@
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item {{ request()->routeIs('users') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('seguidores.index') || request()->routeIs('seguidores.create') ? 'active open' : '' }}">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Usuarios">Amigos</div>
               </a>
 
               <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item {{ request()->routeIs('seguidores.index')? 'active' : '' }}">
                   <a href="{{ route('seguidores.index') }}" class="menu-link">
                     <div data-i18n="Without menu">Listar amigos</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item {{ request()->routeIs('seguidores.create')? 'active' : '' }}">
                   <a href="{{ route('seguidores.create') }}" class="menu-link">
                     <div data-i18n="Without navbar">Crear nuevo</div>
                   </a>
@@ -97,6 +97,6 @@
               </ul>
             </li>
 
-            
+
           </ul>
         </aside>
