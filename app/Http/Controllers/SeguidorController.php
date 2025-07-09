@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Seguidor;
 use Illuminate\Http\Request;
 
 class SeguidorController extends Controller
@@ -15,6 +16,7 @@ class SeguidorController extends Controller
             return redirect()->route('login')->with('error', 'Debes iniciar sesión para ver esta página.');
         }
         $accion = 'listar';
+        $seguidores = Seguidor::all()->paginate(10);
         return view('seguidores',compact('seguidores', 'accion'));
     }
 
