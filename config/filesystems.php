@@ -49,8 +49,8 @@ return [
 
         'seguidores' => [
             'driver' => 'local',
-            'root' => storage_path('img/seguidores'),
-            'url' => env('APP_URL').'img/seguidores',
+            'root' => storage_path('assets/img/seguidores'),
+            'url' => env('APP_URL').'assets/img/seguidores',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,
