@@ -90,7 +90,7 @@
                                             @foreach ($seguidores as $seguidor)
                                                 <tr>
                                                     <td>
-                                                        <img src="../{{ $seguidor->foto ?? asset('assets/img/avatars/1.png') }}" alt="Avatar"
+                                                        <img src="{{ $seguidor->foto ?? asset('assets/img/avatars/1.png') }}" alt="Avatar"
                                                                 class="rounded-circle">
                                                         <strong>{{ $seguidor->nombre }}</strong>
                                                     </td>
