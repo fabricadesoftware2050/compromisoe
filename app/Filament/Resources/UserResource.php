@@ -24,18 +24,22 @@ class UserResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                ->label('Nombre completo')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('role')
+                ->label('Rol')
                     ->required()
                     ->maxLength(255)
                     ->default('user'),
                 Forms\Components\TextInput::make('email')
+                ->label('Correo electrónico')
                     ->email()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\DateTimePicker::make('email_verified_at'),
                 Forms\Components\TextInput::make('password')
+                ->label('Contraseña')
                     ->password()
                     ->required()
                     ->maxLength(255),
@@ -47,12 +51,16 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                ->label('Nombre completo')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('role')
+                ->label('Rol')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
+                ->label('Correo electrónico')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email_verified_at')
+                ->label('Fecha de verificación')
                     ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -60,6 +68,7 @@ class UserResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                ->label('Última actualización')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
