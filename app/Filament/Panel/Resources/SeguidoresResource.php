@@ -19,18 +19,7 @@ class SeguidoresResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     /**
-     * /$table->id();
-            $table->string('nombre');
-            $table->string('documento')->unique();
-            $table->boolean('lider')->default(0);
-            $table->string('celular')->nullable();
-            $table->string('correo')->nullable();
-            $table->string('direccion')->nullable();
-            $table->string('municipio')->nullable();
-            $table->string('puesto')->nullable();
-            $table->string('mesa')->nullable();
-            $table->string('foto')->nullable();
-            $table->timestamps();
+     *
      * @param \Filament\Forms\Form $form
      * @return Forms\Form
      */
@@ -143,7 +132,6 @@ class SeguidoresResource extends Resource
                 Tables\Filters\Filter::make('lider')
                     ->label('Líderes')
                     ->query(fn (Builder $query) => $query->where('lider', true))
-                    ->icon('heroicon-o-star')
                     ->color('success'),
                 //
             ])
