@@ -43,7 +43,7 @@ class AuthController extends Controller
         // Intentar autenticación
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('forum.feed'); // o donde desees redirigir
+            return redirect()->route('home'); // o donde desees redirigir
         }
 
         // Si falla, devolver con error

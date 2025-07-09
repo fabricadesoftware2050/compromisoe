@@ -127,21 +127,11 @@
 
               <form class="mb-3" action="{{ route('auth.login') }}"  method="POST">
                 @csrf
-                @if ($errors->any())
-                <div class="row ">
-                    <div class="alert alert-danger">
-                        <ul class="mb-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                @endif
+                @include('partials.alerts')
                 <div class="mb-3">
                   <label for="email" class="form-label">Correo electrónico o nombre de usuario</label>
                   <input
-                   value="{{ old("email") }}" 
+                   value="{{ old("email") }}"
                     type="text"
                     class="form-control"
                     id="email"
