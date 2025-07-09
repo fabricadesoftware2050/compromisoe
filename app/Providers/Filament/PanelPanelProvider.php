@@ -27,10 +27,7 @@ class PanelPanelProvider extends PanelProvider
         return $panel
             ->id('panel')
             ->path('panel')
-            ->resources([
-            UserResource::class,
-            SeguidoresResource::class,
-            ])
+            
             ->colors([
                 'primary' => Color::Amber,
             ])
