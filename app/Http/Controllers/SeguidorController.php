@@ -79,6 +79,12 @@ class SeguidorController extends Controller
     public function edit(string $id)
     {
         //
+        if(!auth()->check()) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión para ver esta página.');
+        }
+        $accion = 'editar';
+        $seguidor = Seguidor::findOrFail($id);
+        return view('seguidores', compact('seguidor', 'accion'));
     }
 
     /**
@@ -86,7 +92,32 @@ class SeguidorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validación de los campos
+        $validated = $request->validate([
+            'nombre'     => 'required|string|max:255',
+            'documento'  => 'required|string|max:50|unique:seguidores,documento,' . $id,
+            'lider'      => 'nullable|max:5',
+            'celular'    => 'nullable|string|max:20',
+            'correo'     => 'nullable|email|max:100',
+            'direccion'  => 'nullable|string|max:100',
+            'municipio'  => 'nullable|string|max:100',
+            'puesto'     => 'nullable|string|max:100',
+            'mesa'       => 'nullable|string|max:50',
+            'foto'       => 'nullable|image|mimes:jpg,jpeg,png|max:1024', // 1MB
+        ]);
+
+        $validated['lider'] = $request->input('lider')=="on"?1:0; // Asignar el ID del usuario autenticado
+
+        // Procesar la foto si fue subida
+        if ($request->hasFile('foto')) {
+            $fotoPath = $request->file('foto')->store('/', 'img/seguidores'); // Guarda en public/seguidores
+            $validated['foto'] = $fotoPath;
+        }
+
+        // Actualizar el seguidor
+        Seguidor::where('id', $id)->update($validated);
+
+        return redirect()->route('seguidores.index')->with('success', 'Seguidor actualizado correctamente.');
     }
 
     /**
@@ -94,6 +125,17 @@ class SeguidorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $seguidor = Seguidor::findOrFail($id);
+
+        // Eliminar la foto si existe
+        if ($seguidor->foto && Storage::disk('seguidores')->exists($seguidor->foto)) {
+            Storage::disk('seguidores')->delete($seguidor->foto);
+        }
+
+        // Eliminar el seguidor
+        $seguidor->delete();
+
+        return redirect()->route('seguidores.index')->with('success', 'Seguidor eliminado correctamente.');
     }
 }
