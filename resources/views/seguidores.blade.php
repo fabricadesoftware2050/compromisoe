@@ -106,7 +106,7 @@
                                                         <span class="badge bg-label-secondary">Seguidor</span>
                                                         @endif
                                                     </td>
-                                                    <td>{{ Municipio:<strong>strtoupper($seguidor->municipio)??'?' }}</strong> => Puesto:<strong>{{ $seguidor->puesto??'?' }}</strong> => Mesa:<strong>{{ $seguidor->mesa??'?' }}</strong></td>
+                                                    <td>Municipio:<strong>{{ strtoupper($seguidor->municipio)??'?' }}</strong> => Puesto:<strong>{{ $seguidor->puesto??'?' }}</strong> => Mesa:<strong>{{ $seguidor->mesa??'?' }}</strong></td>
                                                     <td>
                                                         <div class="dropdown">
                                                         <button type="button"
