@@ -131,7 +131,7 @@ class SeguidoresResource extends Resource
             ->filters([
                 Tables\Filters\Filter::make('lider')
                     ->label('Líderes')
-                    ->query(fn (Builder $query) => $query->where('lider', true))                //
+                                   //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
