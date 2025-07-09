@@ -79,18 +79,18 @@
             <li class="menu-item {{ request()->routeIs('users') ? 'active' : '' }}">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Usuarios">Usuarios</div>
+                <div data-i18n="Usuarios">Amigos</div>
               </a>
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="layouts-without-menu.html" class="menu-link">
-                    <div data-i18n="Without menu">Listar usuarios</div>
+                  <a href="{{ route('seguidores.index') }}" class="menu-link">
+                    <div data-i18n="Without menu">Listar amigos</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="/panel" class="menu-link" target="_blank">
-                    <div data-i18n="Without navbar">Creare nuevo</div>
+                  <a href="{{ route('seguidores.create') }}" class="menu-link" target="_blank">
+                    <div data-i18n="Without navbar">Crear nuevo</div>
                   </a>
                 </li>
                 <li class="menu-item">
