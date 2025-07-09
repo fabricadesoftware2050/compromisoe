@@ -40,8 +40,17 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('seguidores'),
-            'url' => env('APP_URL').'/seguidores',
+            'root' => storage_path('img/seguidores'),
+            'url' => env('APP_URL').'img/seguidores',
+            'visibility' => 'public',
+            'throw' => false,
+            'report' => false,
+        ],
+
+        'seguidores' => [
+            'driver' => 'local',
+            'root' => storage_path('img/seguidores'),
+            'url' => env('APP_URL').'img/seguidores',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,

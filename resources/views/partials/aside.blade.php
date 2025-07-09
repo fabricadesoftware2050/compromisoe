@@ -89,7 +89,7 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{ route('seguidores.create') }}" class="menu-link" target="_blank">
+                  <a href="{{ route('seguidores.create') }}" class="menu-link">
                     <div data-i18n="Without navbar">Crear nuevo</div>
                   </a>
                 </li>
