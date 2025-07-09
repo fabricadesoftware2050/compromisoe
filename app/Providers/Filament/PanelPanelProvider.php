@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\UserResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -25,6 +26,9 @@ class PanelPanelProvider extends PanelProvider
         return $panel
             ->id('panel')
             ->path('panel')
+            ->resources([
+            UserResource::class,
+            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
