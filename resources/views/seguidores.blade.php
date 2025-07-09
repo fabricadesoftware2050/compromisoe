@@ -79,10 +79,11 @@
                                         <thead>
                                             <tr>
                                                 <th>NOMBRE</th>
-                                                <th>Client</th>
-                                                <th>Users</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
+                                                <th>CC</th>
+                                                <th>CELULAR</th>
+                                                <th>ROL</th>
+                                                <th>VOTO</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody class="table-border-bottom-0">
@@ -100,11 +101,12 @@
                                                     <td>{{ $seguidor->celular }}</td>
                                                     <td>
                                                         @if ($seguidor->lider)
-                                                            <span class="badge bg-label-success">Líder</span>
+                                                        <span class="badge bg-label-success">Líder</span>
                                                         @else
-                                                            <span class="badge bg-label-secondary">Seguidor</span>
+                                                        <span class="badge bg-label-secondary">Seguidor</span>
                                                         @endif
                                                     </td>
+                                                    <td>{{ Municipio:<strong>strtoupper($seguidor->municipio)??'?' }}</strong> => Puesto:<strong>{{ $seguidor->puesto??'?' }}</strong> => Mesa:<strong>{{ $seguidor->mesa??'?' }}</strong></td>
                                                     <td>
                                                         <div class="dropdown">
                                                         <button type="button"
