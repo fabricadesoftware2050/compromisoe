@@ -60,6 +60,13 @@ class SeguidorController extends Controller
 
             // Procesar la foto si fue subida
             if ($request->hasFile('foto')) {
+                //borrar la anterior foto si existe
+                $seguidor = Seguidor::findOrFail($request->input('id'));
+                if ($seguidor->foto && Storage::disk('seguidores')->exists($seguidor->foto)) {
+                    Storage::disk('seguidores')->delete($seguidor->foto);
+                }   
+
+
                 $fotoPath = $request->file('foto')->store('/', 'seguidores'); // Guarda en public/seguidores
                 $validated['foto'] = $fotoPath;
             }
