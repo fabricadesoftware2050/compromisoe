@@ -55,7 +55,7 @@ class SeguidorController extends Controller
 
         // Procesar la foto si fue subida
         if ($request->hasFile('foto')) {
-            $fotoPath = $request->file('foto')->store('/', 'fotos_seguidores'); // Guarda en public/seguidores
+            $fotoPath = $request->file('foto')->store('/', 'seguidores'); // Guarda en public/seguidores
             $validated['foto'] = $fotoPath;
         }
 
@@ -110,7 +110,7 @@ class SeguidorController extends Controller
 
         // Procesar la foto si fue subida
         if ($request->hasFile('foto')) {
-            $fotoPath = $request->file('foto')->store('/', 'fotos_seguidores'); // Guarda en public/seguidores
+            $fotoPath = $request->file('foto')->store('/', 'seguidores'); // Guarda en public/seguidores
             $validated['foto'] = $fotoPath;
         }
 
