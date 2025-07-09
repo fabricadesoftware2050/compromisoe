@@ -11,7 +11,11 @@ class SeguidorController extends Controller
      */
     public function index()
     {
-        return view('seguidores');
+        if(!auth()->check()) {
+            return redirect()->route('login')->with('error', 'Debes iniciar sesión para ver esta página.');
+        }
+        $user = auth()->user();
+        return view('seguidores',compact('user'));
     }
 
     /**
