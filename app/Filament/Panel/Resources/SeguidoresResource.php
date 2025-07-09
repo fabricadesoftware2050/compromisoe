@@ -108,11 +108,7 @@ class SeguidoresResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('foto')
-                    ->label('Foto')
-                    ->disk('public')
-                    ->size(50)
-                    ->circular()
-                    ->default('https://via.placeholder.com/50'),
+                    ->label('Foto'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Creado el')
                     ->dateTime()
