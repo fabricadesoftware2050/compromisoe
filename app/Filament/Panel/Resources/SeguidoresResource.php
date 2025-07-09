@@ -82,10 +82,7 @@ class SeguidoresResource extends Resource
                     ->sortable(),
                 Tables\Columns\BooleanColumn::make('lider')
                     ->label('Líder')
-                    ->trueIcon('heroicon-o-check-circle')
-                    ->falseIcon('heroicon-o-x-circle')
-                    ->trueColor('success')
-                    ->falseColor('danger'),
+                    ,
                 Tables\Columns\TextColumn::make('celular')
                     ->label('Celular')
                     ->searchable()
