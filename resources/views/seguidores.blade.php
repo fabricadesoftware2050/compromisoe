@@ -295,6 +295,175 @@
                                     </div>
                                 </div>
                             </div>
+
+                        @elseif ($accion == 'editar')
+                            <div class="row">
+                                <div class="col-xxl">
+                                    <div class="card mb-4">
+                                        <div class="card-header d-flex align-items-center justify-content-between">
+                                            <img src="fotos_seguidores/{{ $seguidor->foto ?? asset('assets/img/avatars/1.png') }}" alt="Avatar"
+                                                                class="rounded-circle" width="64">
+                                            <h5 class="mb-0">Editar a {{ $seguidor->nombre }}</h5>
+                                            <small class="text-muted float-end">Editar datos</small>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <form action="{{ route('seguidores.store') }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $seguidor->id }}">
+
+                                                {{-- ID --}}
+                                                {{-- Nombre --}}
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label"
+                                                        for="nombre">Nombre *</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <span class="input-group-text"><i
+                                                                    class="bx bx-user"></i></span>
+                                                            <input type="text" class="form-control" id="nombre"
+                                                                name="nombre" placeholder="Nombre completo" value="{{ $seguidor->nombre }}" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {{-- Documento --}}
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label"
+                                                        for="documento">Documento *</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <span class="input-group-text"><i
+                                                                    class="bx bx-id-card"></i></span>
+                                                            <input type="text" class="form-control" id="documento"
+                                                                name="documento" value="{{ $seguidor->documento }}" placeholder="Número de documento"
+                                                                required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                                {{-- Celular --}}
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label"
+                                                        for="celular">Celular</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <span class="input-group-text"><i
+                                                                    class="bx bx-phone"></i></span>
+                                                            <input type="text" class="form-control" id="celular"
+                                                                name="celular" value="{{ $seguidor->celular }}" placeholder="300 123 4567">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {{-- Correo --}}
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label" for="correo">Correo
+                                                        electrónico</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <span class="input-group-text"><i
+                                                                    class="bx bx-envelope"></i></span>
+                                                            <input type="email" class="form-control" id="correo"
+                                                                name="correo" value="{{ $seguidor->correo }}" placeholder="correo@ejemplo.com">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {{-- Dirección --}}
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label"
+                                                        for="direccion">Dirección</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <span class="input-group-text"><i
+                                                                    class="bx bx-home"></i></span>
+                                                            <input type="text" class="form-control" id="direccion"
+                                                                name="direccion" value="{{ $seguidor->direccion }}"
+                                                                placeholder="Dirección de residencia">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {{-- Municipio --}}
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label"
+                                                        for="municipio">Municipio</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <span class="input-group-text"><i
+                                                                    class="bx bx-map"></i></span>
+                                                            <input type="text" class="form-control" id="municipio"
+                                                                name="municipio" value="{{ $seguidor->municipio }}"
+                                                                placeholder="Municipio de residencia">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {{-- Puesto de votación --}}
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label" for="puesto">Puesto de
+                                                        votación</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <span class="input-group-text"><i
+                                                                    class="bx bx-building-house"></i></span>
+                                                            <input type="text" class="form-control" id="puesto"
+                                                                name="puesto" value="{{ $seguidor->puesto }}" placeholder="Nombre del puesto">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {{-- Mesa --}}
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label" for="mesa">Mesa</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <span class="input-group-text"><i
+                                                                    class="bx bx-grid-alt"></i></span>
+                                                            <input type="text" value="{{ $seguidor->mesa }}" class="form-control" id="mesa"
+                                                                name="mesa" placeholder="Número de mesa">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {{-- Foto --}}
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label" for="foto">Foto</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="file" class="form-control" id="foto"
+                                                            name="foto" accept="image/*">
+                                                    </div>
+                                                </div>
+
+                                                {{-- Líder --}}
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label"
+                                                        for="lider">Líder</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="form-check form-switch mb-2">
+                                                            <input name="lider" class="form-check-input" checked="{{ $seguidor->lider?'checked':''  }}" type="checkbox" id="flexSwitchCheckDefault">
+                                                            <label class="form-check-label" for="flexSwitchCheckDefault">Es de los líderes que me apoyan?</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {{-- Botón de envío --}}
+                                                <div class="row justify-content-end">
+                                                    <div class="col-sm-10">
+                                                        <button type="submit" class="btn btn-primary">Guardar
+                                                            Seguidor</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endif
 
                     </div>
