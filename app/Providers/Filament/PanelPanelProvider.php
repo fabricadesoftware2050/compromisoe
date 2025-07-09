@@ -2,7 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Panel\Resources\SeguidoresResource;
+use App\Filament\Resources\SeguidoresResource;
 use App\Filament\Resources\UserResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -27,7 +27,10 @@ class PanelPanelProvider extends PanelProvider
         return $panel
             ->id('panel')
             ->path('panel')
-            
+            ->resources([
+            UserResource::class,
+            SeguidoresResource::class,
+            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
