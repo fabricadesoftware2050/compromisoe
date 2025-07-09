@@ -4,7 +4,7 @@ namespace App\Filament\Panel\Resources;
 
 use App\Filament\Panel\Resources\SeguidoresResource\Pages;
 use App\Filament\Panel\Resources\SeguidoresResource\RelationManagers;
-use App\Models\Seguidores;
+use App\Models\Seguidor;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SeguidoresResource extends Resource
 {
-    protected static ?string $model = Seguidores::class;
+    protected static ?string $model = Seguidor::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
