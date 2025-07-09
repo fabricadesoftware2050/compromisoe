@@ -55,16 +55,7 @@ class SeguidoresResource extends Resource
                 Forms\Components\TextInput::make('mesa')
                     ->nullable()
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('foto')
-                    ->nullable()
-                    ->image()
-                    ->maxSize(1024) // 1MB
-                    ->directory('seguidores')
-                    ->preserveFilenames()
-                    ->visibility('public')
-                    ->label('Foto del Seguidor'),
-
-                //
+                
             ]);
     }
 
