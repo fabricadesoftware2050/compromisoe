@@ -40,7 +40,7 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('public'),
+            'root' => storage_path('seguidores'),
             'url' => env('APP_URL').'/seguidores',
             'visibility' => 'public',
             'throw' => false,
