@@ -90,8 +90,10 @@
                                             @foreach ($seguidores as $seguidor)
                                                 <tr>
                                                     <td>
-                                                        <img src="fotos_seguidores/{{ $seguidor->foto ?? asset('assets/img/avatars/1.png') }}" alt="Avatar"
-                                                                class="rounded-circle">
+                                                        <a href="fotos_seguidores/{{ $seguidor->foto ?? asset('assets/img/avatars/1.png') }}" target="_blank">
+                                                            <img src="fotos_seguidores/{{ $seguidor->foto ?? asset('assets/img/avatars/1.png') }}" alt="Avatar"
+                                                                class="rounded-circle" width="25">
+                                                        </a>
                                                         <strong>{{ $seguidor->nombre }}</strong>
                                                     </td>
                                                     <td>{{ $seguidor->documento }}</td>
