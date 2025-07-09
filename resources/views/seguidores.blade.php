@@ -456,8 +456,7 @@
                                                 {{-- Botón de envío --}}
                                                 <div class="row justify-content-end">
                                                     <div class="col-sm-10">
-                                                        <button type="submit" class="btn btn-primary">Guardar
-                                                            Seguidor</button>
+                                                        <button type="submit" class="btn btn-warning">Actualizar datos</button>
                                                     </div>
                                                 </div>
                                             </form>
