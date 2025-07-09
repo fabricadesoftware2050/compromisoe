@@ -64,7 +64,7 @@ class SeguidorController extends Controller
                 $seguidor = Seguidor::findOrFail($request->input('id'));
                 if ($seguidor->foto && Storage::disk('seguidores')->exists($seguidor->foto)) {
                     Storage::disk('seguidores')->delete($seguidor->foto);
-                }   
+                }
 
 
                 $fotoPath = $request->file('foto')->store('/', 'seguidores'); // Guarda en public/seguidores
@@ -72,9 +72,16 @@ class SeguidorController extends Controller
             }
 
             // Actualizar el seguidor
-            Seguidor::where('id', $request->input('id'))->update($validated);
+            if(auth()->user()->role=='admin' || auth()->user()->id==$request->input('id')) {
 
-            return redirect()->route('seguidores.index')->with('success', 'Seguidor actualizado correctamente.');
+                Seguidor::where('id', $request->input('id'))->update($validated);
+                return redirect()->route('seguidores.index')->with('success', 'Seguidor actualizado correctamente.');
+            }else{
+                return redirect()->route('seguidores.edit')->withErrors([
+            'permisos' => 'No tienes permiso para realizar esta acción.'
+        ]);
+            }
+
         }
          // Validación de los campos
         $validated = $request->validate([
@@ -98,10 +105,16 @@ class SeguidorController extends Controller
             $validated['foto'] = $fotoPath;
         }
 
+         if(auth()->user()->role=='admin' || auth()->user()->id==$request->input('id')) {
         // Crear el seguidor
         Seguidor::create($validated);
 
         return redirect()->route('seguidores.index')->with('success', 'Seguidor registrado correctamente.');
+         }else{
+            return redirect()->route('seguidores.create')->withErrors([
+            'permisos' => 'No tienes permiso para crear un seguidor.'
+        ]);
+         }
     }
 
     /**

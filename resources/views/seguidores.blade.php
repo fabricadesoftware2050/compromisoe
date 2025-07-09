@@ -137,8 +137,8 @@
                                 <div class="col-xxl">
                                     <div class="card mb-4">
                                         <div class="card-header d-flex align-items-center justify-content-between">
-                                            <h5 class="mb-0">Basic with Icons</h5>
-                                            <small class="text-muted float-end">Merged input group</small>
+                                            <h5 class="mb-0">Crear nuevo</h5>
+                                            <small class="text-muted float-end">Llena los campos</small>
                                         </div>
                                         <div class="card-body">
                                             <form action="{{ route('seguidores.store') }}" method="POST"
