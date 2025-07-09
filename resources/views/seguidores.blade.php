@@ -95,7 +95,9 @@
                                                             <img src="fotos_seguidores/{{ $seguidor->foto ?? asset('assets/img/avatars/1.png') }}" alt="Avatar"
                                                                 class="rounded-circle" width="25">
                                                         </a>
-                                                        <strong>{{ $seguidor->nombre }}</strong>
+                                                        <a href="{{ route('seguidores.edit', $seguidor->id) }}">
+                                                            <strong>{{ $seguidor->nombre }}</strong>
+                                                        </a>
                                                     </td>
                                                     <td>{{ $seguidor->documento }}</td>
                                                     <td>{{ $seguidor->celular }}</td>
@@ -108,24 +110,14 @@
                                                     </td>
                                                     <td>Municipio:<strong>{{ strtoupper($seguidor->municipio)??'?' }}</strong> => Puesto:<strong>{{ $seguidor->puesto??'?' }}</strong> => Mesa:<strong>{{ $seguidor->mesa??'?' }}</strong></td>
                                                     <td>
-                                                        <div class="dropdown">
-                                                        <button type="button"
-                                                            class="btn p-0 dropdown-toggle hide-arrow"
-                                                            data-bs-toggle="dropdown">
-                                                            <i class="bx bx-dots-vertical-rounded"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="{{ route('seguidores.edit', $seguidor->id) }}"><i
-                                                                    class="bx bx-edit-alt me-1"></i> Editar</a>
-                                                                    <form action="{{ route('seguidores.destroy', $seguidor->id) }}"
+                                                        <form action="{{ route('seguidores.destroy', $seguidor->id) }}"
                                                             method="POST" style="display:inline;">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="dropdown-item" href="javascript:void(0);"><i
+                                                            <button type="submit" class="btn btn-danger"><i
                                                                     class="bx bx-trash me-1"></i> Borrar</button>
                                                                     </form>
-                                                        </div>
-                                                    </div>
+
 
                                                     </td>
                                                 </tr>
