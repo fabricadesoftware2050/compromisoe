@@ -27,15 +27,9 @@ class PanelPanelProvider extends PanelProvider
         return $panel
             ->id('panel')
             ->path('panel')
-            ->resources([
-            UserResource::class,
-            SeguidoresResource::class,
-            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Panel/Resources'), for: 'App\\Filament\\Panel\\Resources')
-            ->discoverPages(in: app_path('Filament/Panel/Pages'), for: 'App\\Filament\\Panel\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
