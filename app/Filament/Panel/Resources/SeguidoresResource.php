@@ -56,11 +56,11 @@ class SeguidoresResource extends Resource
                     ->nullable()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('foto')
+                    ->disk('public') // ← aquí usas el disco personalizado
                     ->nullable()
                     ->image()
                     ->maxSize(1024) // 1MB
-                    ->directory('seguidores')
-                    ->preserveFilenames()
+                    ->directory('/')
                     ->visibility('public')
                     ->label('Foto del Seguidor'),
 
@@ -108,7 +108,10 @@ class SeguidoresResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('foto')
-                    ->label('Foto'),
+                    ->disk('public')
+                    ->label('Foto')
+                    ->visibility('public')
+                    ->height(40),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Creado el')
                     ->dateTime()
