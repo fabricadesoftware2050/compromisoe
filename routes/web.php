@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+
 Route::get('/', function () {
     return view('welcome');
 })->name('login');
@@ -12,5 +14,5 @@ Route::get('/login', function () {
 Route::post('/login', [AuthController::class,'login'])->name('auth.login');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
