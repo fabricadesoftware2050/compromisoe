@@ -114,7 +114,7 @@
                                                             method="POST" style="display:inline;">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger"><i
+                                                            <button type="button" onclick="if(confirm('Realmente desea eliminar a {{ $seguidor->nombre }}?')){this.form.submit();}" class="btn btn-danger"><i
                                                                     class="bx bx-trash me-1"></i> Borrar</button>
                                                                     </form>
 
