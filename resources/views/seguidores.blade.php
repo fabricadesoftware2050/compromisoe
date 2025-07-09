@@ -301,8 +301,10 @@
                                 <div class="col-xxl">
                                     <div class="card mb-4">
                                         <div class="card-header d-flex align-items-center justify-content-between">
-                                            <img src="fotos_seguidores/{{ $seguidor->foto ?? asset('assets/img/avatars/1.png') }}" alt="Avatar"
+                                           @if ($seguidor->foto)
+                                            <img src="../../fotos_seguidores/{{ $seguidor->foto }}" alt="Avatar"
                                                                 class="rounded-circle" width="64">
+                                           @endif
                                             <h5 class="mb-0">Editar a {{ $seguidor->nombre }}</h5>
                                             <small class="text-muted float-end">Editar datos</small>
 
