@@ -19,6 +19,9 @@ class SeguidoresResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $pluralModelLabel = 'seguidores';
+    protected static ?string $modelLabel = 'seguidor';
+
     public static function form(Form $form): Form
     {
         return $form
